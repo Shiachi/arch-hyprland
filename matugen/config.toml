@@ -13,7 +13,7 @@ input_path = '~/.config/matugen/templates/color.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 
-[templates.kitty] #onlyGen
+[templates.kitty] 
 input_path = "~/.config/matugen/templates/kitty-colors.conf"
 output_path = "~/.config/kitty/colors.conf"
 post_hook = 'pkill -SIGUSR1 kitty'
@@ -40,3 +40,11 @@ post_hook = 'pywalfox update'
 input_path = '~/.config/matugen/templates/cava-colors.ini'
 output_path = '~/.config/cava/themes/your-theme'
 post_hook = "pkill -USR1 cava"
+
+[templates.vscode]
+input_path = '~/.config/matugen/templates/vscode.json'
+output_path = '~/.config/Code/User/settings.json'
+
+[templates.vscodium]
+input_path = '~/.config/matugen/templates/vscode.json'
+output_path = '~/.config/VSCodium/User/settings.json'

@@ -4,3 +4,5 @@
 !hypr/
 
 !.gitignore
+hypr/hyprland/scripts/testscheme.sh
+hypr/hyprland/colors.conf
