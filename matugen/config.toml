@@ -5,7 +5,7 @@ set = false
 
 [templates.hyprland] #onlyGen
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/colors.conf'
+output_path = '~/.config/hypr/hyprland/colors.conf'
 post_hook = 'hyprctl reload'
 
 [templates.waybar] #onlyGen
