@@ -16,7 +16,7 @@ post_hook = 'pkill -SIGUSR2 waybar'
 [templates.kitty] #onlyGen
 input_path = "~/.config/matugen/templates/kitty-colors.conf"
 output_path = "~/.config/kitty/colors.conf"
-post_hook = "cat ~/.config/kitty/colors.conf | kitty @ --to=$KITTY_LISTEN_ON set-colors --all"
+post_hook = 'pkill -SIGUSR1 kitty'
 
 [templates.gtk3] #onlyGen
 input_path = '~/.config/matugen/templates/gtk-colors.css'
