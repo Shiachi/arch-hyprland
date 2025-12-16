@@ -7,3 +7,5 @@
 !.gitignore
 hypr/hyprland/scripts/testscheme.sh
 hypr/hyprland/colors.conf
+hypr/hyprland/scripts/test1.sh
+rofi/colors.rasi
