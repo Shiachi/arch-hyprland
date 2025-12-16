@@ -2,6 +2,7 @@
 
 !matugen/
 !hypr/
+!rofi/
 
 !.gitignore
 hypr/hyprland/scripts/testscheme.sh
