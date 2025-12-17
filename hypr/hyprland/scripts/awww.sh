@@ -43,6 +43,7 @@ while true; do
             echo "Error: Directory $current_wallpaper_dir not found."
         fi
         last_hour=$current_hour
+        sleep 15s
     fi
     
     sleep 60s
