@@ -36,7 +36,7 @@ input_path = '~/.config/matugen/templates/pywalfox-colors.json'
 output_path = '~/.cache/wal/colors.json'
 post_hook = 'pywalfox update'
 
-[templates.cava] #onlyGen
+[templates.cava] 
 input_path = '~/.config/matugen/templates/cava-colors.ini'
 output_path = '~/.config/cava/themes/your-theme'
 post_hook = "pkill -USR1 cava"
