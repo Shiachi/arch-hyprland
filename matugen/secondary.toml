@@ -1,0 +1,11 @@
+# * Colors for secondary screen 
+
+[config]
+command = "awww"
+arguments = ["img", "--transition-type", "any", "--transition-fps", "60"]
+set = false
+
+[templates.waybar] #onlyGen _secondary
+input_path = '~/.config/matugen/templates/color.css'
+output_path = '~/.config/waybar/colors_secondary.css'
+post_hook = 'pkill -SIGUSR2 waybar'
