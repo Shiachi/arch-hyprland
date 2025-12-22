@@ -4,6 +4,7 @@
 !hypr/
 !rofi/
 !cava/
+!waybar/
 
 !.gitignore
 hypr/hyprland/scripts/testscheme.sh
@@ -12,3 +13,4 @@ hypr/hyprland/scripts/test1.sh
 rofi/colors.rasi
 cava/shaders
 cava/themes
+waybar/colors.css
