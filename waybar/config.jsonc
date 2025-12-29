@@ -16,6 +16,7 @@
         "memory",
         "clock",
         "tray",
+        "custom/notification",
         "custom/power"
     ]
 },
@@ -37,6 +38,7 @@
         "memory",
         "clock",
         "tray",
+        "custom/notification",
         "custom/power"
     ],
 
