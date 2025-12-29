@@ -11,7 +11,7 @@ post_hook = 'hyprctl reload'
 
 [templates.waybar] #onlyGen 
 input_path = '~/.config/matugen/templates/color.css'
-output_path = '~/.config/waybar/colors_primary.css'
+output_path = '~/.config/waybar/theme/colors_primary.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 
 [templates.kitty]

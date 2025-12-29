@@ -13,5 +13,5 @@ hypr/hyprland/scripts/test1.sh
 rofi/colors.rasi
 cava/shaders
 cava/themes
-waybar/colors_primary.css
-waybar/colors_secondary.css
+waybar/theme/colors_primary.css
+waybar/theme/colors_secondary.css
