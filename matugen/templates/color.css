@@ -5,3 +5,5 @@
 <* for name, value in colors *>
     @define-color {{name}} {{value.default.hex}};
 <* endfor *>
+
+@define-color background alpha({{colors.surface.default.hex}}, 0.5);

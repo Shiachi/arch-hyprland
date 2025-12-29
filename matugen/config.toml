@@ -7,12 +7,11 @@ set = false
 [templates.hyprland] #onlyGen
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/hyprland/colors.conf'
-post_hook = 'hyprctl reload'
 
 [templates.waybar] #onlyGen 
 input_path = '~/.config/matugen/templates/color.css'
 output_path = '~/.config/waybar/themes/colors_primary.css'
-post_hook = 'pkill -SIGUSR2 waybar'
+post_hook = '~/.config/waybar/scripts/launch.sh'
 
 [templates.kitty]
 input_path = "~/.config/matugen/templates/kitty-colors.conf"
