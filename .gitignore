@@ -4,6 +4,7 @@
 !hypr/
 !rofi/
 !cava/
+!mpv/
 
 !.gitignore
 hypr/hyprland/scripts/testscheme.sh
