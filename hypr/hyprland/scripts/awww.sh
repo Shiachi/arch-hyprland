@@ -37,8 +37,11 @@ while true; do
             wallpaper_2=$(find "$current_wallpaper_dir" -type f \( -name "*.jpg" -o -name "*.png" \) | grep -vF "$wallpaper_1" | shuf -n 1)
             
             awww img "$wallpaper_1" --outputs "$primary_monitor" $transition_args 
-            matugen image -t scheme-tonal-spot "$wallpaper_1"
+            matugen image -t scheme-tonal-spot "$wallpaper_1" 
+
             awww img "$wallpaper_2" --outputs "$secondary_monitor" $transition_args
+            matugen image -t scheme-tonal-spot -c ~/.config/matugen/secondary.toml "$wallpaper_2" 
+
         else
             echo "Error: Directory $current_wallpaper_dir not found."
         fi

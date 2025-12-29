@@ -1,0 +1,9 @@
+[{
+    "name": "secondary-monitor",
+	"output": ["DP-1"],
+	"include": [
+		"~/.config/waybar/settings/modules.jsonc",
+        "~/.config/waybar/settings/settings.jsonc"
+	]
+}
+]

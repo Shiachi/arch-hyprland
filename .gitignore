@@ -5,6 +5,7 @@
 !rofi/
 !cava/
 !mpv/
+!waybar/
 
 !.gitignore
 hypr/hyprland/scripts/testscheme.sh
@@ -13,3 +14,5 @@ hypr/hyprland/scripts/test1.sh
 rofi/colors.rasi
 cava/shaders
 cava/themes
+waybar/themes/colors_primary.css
+waybar/themes/colors_secondary.css

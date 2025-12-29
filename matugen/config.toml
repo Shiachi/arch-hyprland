@@ -1,3 +1,4 @@
+# * Colors for primary screen and global settings
 [config]
 command = "awww"
 arguments = ["img", "--transition-type", "any", "--transition-fps", "60"]
@@ -8,9 +9,9 @@ input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/hyprland/colors.conf'
 post_hook = 'hyprctl reload'
 
-[templates.waybar] #onlyGen
+[templates.waybar] #onlyGen 
 input_path = '~/.config/matugen/templates/color.css'
-output_path = '~/.config/waybar/colors.css'
+output_path = '~/.config/waybar/themes/colors_primary.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 
 [templates.kitty]
@@ -21,7 +22,7 @@ post_hook = 'pkill -SIGUSR1 kitty'
 [templates.gtk3] 
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = "~/.config/gtk-3.0/gtk.css"
-post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
 
 [templates.gtk4] 
 input_path = '~/.config/matugen/templates/gtk-colors.css'
