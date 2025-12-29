@@ -34,11 +34,13 @@
         // }
     },
     "clock": {
-        "clock": "clock1",
-
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
+    },
+    "clock#clock1": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%Y-%m-%d}",
+        "format-alt":"{:%H:%M}"
     },
     "cpu": {
         "interval" : 1,
@@ -100,5 +102,5 @@
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
-    },
+    }
 }

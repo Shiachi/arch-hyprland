@@ -1,51 +1,17 @@
 [{
+    "name": "primary-monitor",
 	"output": ["HDMI-A-1"],
 	"include": [
-		"~/.config/waybar/common/modules.jsonc",
-		"~/.config/waybar/common/settings.jsonc"
-	],
-    "modules-left": [
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
-    "modules-right": [
-        "pulseaudio",
-        "cpu",
-        "memory",
-        "clock",
-        "tray",
-        "custom/notification",
-        "custom/power"
-    ]
+		"~/.config/waybar/settings/modules.jsonc",
+		"~/.config/waybar/settings/settings.jsonc"
+	]
 },
 {
+    "name": "secondary-monitor",
 	"output": ["DP-1"],
 	"include": [
-		"~/.config/waybar/common/modules.jsonc",
-        "~/.config/waybar/common/settings.jsonc"
-	],
-    "modules-left": [
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
-    "modules-right": [
-        "pulseaudio",
-        "cpu",
-        "memory",
-        "clock",
-        "tray",
-        "custom/notification",
-        "custom/power"
-    ],
-
-    "clock": {
-            "format": "{:%Y-%m-%d}",
-            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    }
-
+		"~/.config/waybar/settings/modules.jsonc",
+        "~/.config/waybar/settings/settings.jsonc"
+	]
 }
 ]
