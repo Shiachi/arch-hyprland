@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 sleep 3s #Delay startup until all monitors are ready.
 primary_monitor="HDMI-A-1" 
-secondary_monitor="DP-1"
+secondary_monitor="DVI-D-1"
 base_wallpaper_dir="/mnt/Files/Fan Art/Zpixiv/R/wall"
 transition_args="--transition-type outer --transition-step 86 --transition-fps 75"
 last_hour=""
