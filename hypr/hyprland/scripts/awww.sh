@@ -6,6 +6,11 @@ base_wallpaper_dir="/mnt/Files/Fan Art/Zpixiv/R/wall"
 transition_args="--transition-type outer --transition-step 86 --transition-fps 75"
 last_hour=""
 
+history_file_1="/tmp/wallpaper_history_1.txt"
+history_file_2="/tmp/wallpaper_history_2.txt"
+touch "$history_file_1"
+touch "$history_file_2"
+
 
 while true; do
 
@@ -35,6 +40,15 @@ while true; do
         if [ -d "$current_wallpaper_dir" ]; then
             wallpaper_1=$(find "$current_wallpaper_dir" -type f \( -name "*.jpg" -o -name "*.png" \) | shuf -n 1)
             wallpaper_2=$(find "$current_wallpaper_dir" -type f \( -name "*.jpg" -o -name "*.png" \) | grep -vF "$wallpaper_1" | shuf -n 1)
+
+
+            echo "$wallpaper_1" >> "$history_file_1"
+            echo "$wallpaper_2" >> "$history_file_2"
+
+            echo "--- Session History---"
+            tail -n 4 "$history_file_1"
+            echo "-----------------------------------------"
+            tail -n 4 "$history_file_2"
             
             awww img "$wallpaper_1" --outputs "$primary_monitor" $transition_args 
             awww img "$wallpaper_2" --outputs "$secondary_monitor" $transition_args
