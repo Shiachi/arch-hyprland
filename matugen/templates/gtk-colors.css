@@ -40,7 +40,7 @@
 @define-color popover_fg_color @card_fg_color;
 @define-color shade_color rgba(0, 0, 0, 0.36);
 @define-color scrollbar_outline_color rgba(139, 145, 152, 0.5);
-@define-color sidebar_bg_color {{colors.surface_container_low.default.hex}}
+@define-color sidebar_bg_color {{colors.surface_container_low.default.hex}};
 @define-color secondary_sidebar_bg_color @sidebar_bg_color;
 @define-color sidebar_backdrop_color @sidebar_bg_color;
 @define-color secondary_sidebar_backdrop_color @sidebar_bg_color;
@@ -60,4 +60,4 @@ window.csd decoration {
     box-shadow: none;
 }
 
-#https://www.youtube.com/watch?v=DOzqPqMjci8
+/* https://www.youtube.com/watch?v=DOzqPqMjci8 */
