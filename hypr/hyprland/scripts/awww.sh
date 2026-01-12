@@ -36,19 +36,38 @@ while true; do
         esac
 
         current_wallpaper_dir="$base_wallpaper_dir/$wallpaper_subdir"
-
         if [ -d "$current_wallpaper_dir" ]; then
-            wallpaper_1=$(find "$current_wallpaper_dir" -type f \( -name "*.jpg" -o -name "*.png" \) | shuf -n 1)
-            wallpaper_2=$(find "$current_wallpaper_dir" -type f \( -name "*.jpg" -o -name "*.png" \) | grep -vF "$wallpaper_1" | shuf -n 1)
+            wallpaper_list=$(find "$current_wallpaper_dir" -type f \( -name "*.jpg" -o -name "*.png" \))
 
+            if [ -s "$history_file_1" ]; then
+                echo "History found. Filtering..."
+                wallpaper_1=$(echo "$wallpaper_list" | grep -vFf "$history_file_1" | shuf -n 1)
+                if [ -z "$wallpaper_1" ]; then
+                    echo "Error: No unique wallpapers left for Monitor 1 (History full)."
+                    exit 1
+                fi
 
-            echo "$wallpaper_1" >> "$history_file_1"
-            echo "$wallpaper_2" >> "$history_file_2"
+                wallpaper_2=$(echo "$wallpaper_list" | grep -vF "$wallpaper_1" | grep -vFf "$history_file_2" | shuf -n 1)
+                if [ -z "$wallpaper_2" ]; then
+                    echo "Error: No unique wallpapers left for Monitor 2."
+                    exit 1
+                fi
 
-            echo "--- Session History---"
-            tail -n 4 "$history_file_1"
-            echo "-----------------------------------------"
-            tail -n 4 "$history_file_2"
+                echo "Finish"
+            else
+                echo "History empty. Picking random..."
+                wallpaper_1=$(echo "$wallpaper_list" | shuf -n 1)
+                wallpaper_2=$(echo "$wallpaper_list" | grep -vF "$wallpaper_1" | shuf -n 1)
+                echo "finish"
+            fi
+
+            if [ -n "$wallpaper_1" ] && [ -n "$wallpaper_2" ]; then
+                echo "$wallpaper_1" >> "$history_file_1"
+                echo "$wallpaper_2" >> "$history_file_2"
+            fi
+
+            echo $wallpaper_1
+            echo $wallpaper_2
             
             awww img "$wallpaper_1" --outputs "$primary_monitor" $transition_args 
             awww img "$wallpaper_2" --outputs "$secondary_monitor" $transition_args
@@ -56,14 +75,10 @@ while true; do
             matugen image -t scheme-tonal-spot -c ~/.config/matugen/secondary.toml "$wallpaper_2" 
             matugen image -t scheme-tonal-spot "$wallpaper_1" 
 
-            
-
         else
             echo "Error: Directory $current_wallpaper_dir not found."
         fi
         last_hour=$current_hour
     fi
     
-    sleep 60s
-
 done
