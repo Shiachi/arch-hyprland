@@ -127,17 +127,37 @@
         album_sort_by: Date,
         album_date_tags: [Date],
     ),
+    cava: (
+        framerate: 60, // default 60
+        autosens: true, // default true
+        sensitivity: 100, // default 100
+        lower_cutoff_freq: 20, // not passed to cava if not provided
+        higher_cutoff_freq: 20000, // not passed to cava if not provided
+        input: (
+            method: Fifo,
+            source: "/tmp/mpd.fifo",
+            sample_rate: 44100,
+            channels: 2,
+            sample_bits: 16,
+        ),
+        smoothing: (
+            noise_reduction: 77, // default 77
+            monstercat: false, // default false
+            waves: false, // default false
+        ),
+        eq: []
+    ),
     tabs: [
         (name: "Home", pane: Split(direction: Horizontal, panes: [
-                    (size: "40%", borders: "NONE", border_symbols: Rounded ,pane: Split(direction: Vertical, panes: [
+                    (size: "40%", borders: "ALL", border_symbols: Rounded ,pane: Split(direction: Vertical, panes: [
                         (size: "100%", borders: "NONE",
                             pane: Pane(AlbumArt)),
                         ])
                     ),
                     (size: "60%", borders: "NONE", pane: Split(direction: Vertical, panes: [
 
-                    (size: "3", borders: "ALL", border_symbols: Rounded, pane: Pane(QueueHeader())),
-                                (size: "100%", borders: "ALL", border_symbols: Rounded, pane: Pane(Queue)),
+                    (size: "3", borders: "LEFT | RIGHT | TOP", border_symbols: Rounded, pane: Pane(QueueHeader())),
+                                (size: "100%", borders: "LEFT | RIGHT | BOTTOM", border_symbols: Rounded, pane: Pane(Queue)),
                         ])
 
                     ),
@@ -145,10 +165,6 @@
         ),
         (name: "Directories", pane: Split(direction: Horizontal,panes: [
                     (size: "100%", borders: "ALL", border_symbols: Rounded, pane: Pane(Directories)),
-                ])
-        ),
-        (name: "Playlists", pane: Split(direction: Horizontal, panes: [
-                    (size: "100%", borders: "ALL", border_symbols: Rounded, pane: Pane(Playlists)),
                 ])
         ),
         (name: "Artists", pane: Split(direction: Horizontal, panes: [
@@ -159,16 +175,8 @@
                     (size: "100%", borders: "ALL", border_symbols: Rounded, pane: Pane(Albums)),
                 ])
         ),
-        (name: "Album Artists", pane: Split(direction: Horizontal, panes: [
-                    (size: "100%", borders: "ALL", border_symbols: Rounded, pane: Pane(AlbumArtists)),
-                ])
-        ),
-        (name: "Genre", pane: Split(direction: Horizontal, panes: [
-                    (size: "100%", borders: "ALL", border_symbols: Rounded, pane: Pane(Browser(root_tag: "genre", separator: ";"))),
-                ])
-        ),
-        (name: "Queue", pane: Split(direction: Horizontal, panes: [
-                    (size: "100%", borders: "ALL", border_symbols: Rounded, pane: Pane(Queue))
+        (name: "Search", pane: Split(direction: Horizontal, panes: [
+                    (size: "100%", borders: "ALL", border_symbols: Rounded, pane: Pane(Search)),
                 ])
         ),
         (name: "Show",pane: Split(direction: Vertical, panes: [
@@ -176,17 +184,13 @@
                                 (size: "39%", borders: "ALL", border_symbols: Rounded, pane: Pane(Queue)),
                                 (size: "22%", borders: "ALL", border_symbols: Rounded, pane: Pane(AlbumArt)),
                                 (size: "39%", borders: "ALL",
-                                    border_title: [(kind: Text("Lyrics"), style: (fg: "#81a1c1"))],
+                                    border_title: [(kind: Text("Lyrics"), style: (fg: None))],
                                     border_title_position: Top,
                                     border_title_alignment: Right,
                                     border_symbols: Rounded, pane: Pane(Lyrics)),
                             ])
                     ),
                     (size: "50%", borders: "ALL", border_symbols: Rounded, pane: Pane(Cava)),
-                ])
-        ),
-        (name: "Search", pane: Split(direction: Horizontal, panes: [
-                    (size: "100%", borders: "ALL", border_symbols: Rounded, pane: Pane(Search)),
                 ])
         ),
     ],
