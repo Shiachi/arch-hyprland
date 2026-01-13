@@ -6,8 +6,10 @@
 !cava/
 !mpv/
 !waybar/
+!gtk-3.0/
 !gtk-4.0/
 !.gitignore
+!rmpc/
 
 hypr/hyprland/scripts/testscheme.sh
 hypr/hyprland/colors.conf
@@ -17,6 +19,9 @@ cava/shaders
 cava/themes
 waybar/themes/colors_primary.css
 waybar/themes/colors_secondary.css
+gtk-3.0/bookmarks
+gtk-3.0/colors.css
+gtk-3.0/settings.ini
 gtk-4.0/assets
 gtk-4.0/colors.css
 gtk-4.0/gtk-dark.css
