@@ -114,7 +114,7 @@
                                             (kind: Property(Status(Elapsed))),
                                             (kind: Text(" / ")),
                                             (kind: Property(Status(Duration))),
-                                            (kind: Text(" 󱦟")),
+                                            (kind: Text(" ")),
                                             (kind: Text(" ]"))
                                         ], align: Left))
                             ),
