@@ -8,6 +8,7 @@
 !waybar/
 !gtk-4.0/
 !.gitignore
+!rmpc/
 
 hypr/hyprland/scripts/testscheme.sh
 hypr/hyprland/colors.conf
