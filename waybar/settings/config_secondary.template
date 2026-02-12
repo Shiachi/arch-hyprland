@@ -1,6 +1,6 @@
 [{
     "name": "secondary-monitor",
-	"output": ["DVI-D-1"],
+	"output": "${SECONDARY_MONITOR}",
 	"include": [
 		"~/.config/waybar/settings/modules.jsonc",
         "~/.config/waybar/settings/settings.jsonc"

@@ -1,6 +1,6 @@
 [{
     "name": "primary-monitor",
-	"output": ["HDMI-A-1"],
+	"output": "${PRIMARY_MONITOR}",
 	"include": [
 		"~/.config/waybar/settings/modules.jsonc",
 		"~/.config/waybar/settings/settings.jsonc"
