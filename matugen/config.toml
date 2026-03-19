@@ -15,7 +15,7 @@ post_hook = '~/.config/waybar/scripts/launch.sh'
 
 [templates.kitty]
 input_path = "~/.config/matugen/templates/kitty-colors.conf"
-output_path = "~/.config/kitty/colors.conf"
+output_path = "~/.config/kitty/colors-HDMI-A-2.conf"
 post_hook = 'pkill -SIGUSR1 kitty'
 
 [templates.gtk3] 

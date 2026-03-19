@@ -10,6 +10,7 @@
 !gtk-4.0/
 !.gitignore
 !rmpc/
+!kitty/
 
 hypr/hyprland/scripts/testscheme.sh
 hypr/hyprland/colors.conf
@@ -28,3 +29,7 @@ gtk-4.0/gtk-dark.css
 gtk-4.0/libadwaita-tweaks.css
 gtk-4.0/libadwaita.css
 gtk-4.0/settings.ini
+kitty/colors-DP-2.conf
+kitty/colors-HDMI-A-2.conf
+kitty/kitty-copy.conf
+kitty/kitty.conf.bak

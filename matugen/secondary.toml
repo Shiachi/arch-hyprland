@@ -8,3 +8,7 @@ set = false
 [templates.waybar] #onlyGen _secondary
 input_path = '~/.config/matugen/templates/color.css'
 output_path = '~/.config/waybar/themes/colors_secondary.css'
+
+[templates.kitty]
+input_path = "~/.config/matugen/templates/kitty-colors.conf"
+output_path = "~/.config/kitty/colors-DP-2.conf"
