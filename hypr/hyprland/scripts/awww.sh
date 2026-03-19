@@ -1,16 +1,13 @@
 #!/usr/bin/bash
-sleep 3s #Delay startup until all monitors are ready.
-monitors=($(hyprctl monitors -j | jq -r 'sort_by(.x) | .[].name'))
-primary_monitor=${monitors[0]}
-secondary_monitor=${monitors[1]}
+sleep 5s #Delay startup until all monitors are ready.
+
 base_wallpaper_dir="/mnt/Files/media/Fan Art/Zpixiv/R/wall"
 transition_args="--transition-type outer --transition-step 86 --transition-fps 75"
 last_hour=""
 
 history_file_1="/tmp/wallpaper_history_1.txt"
 history_file_2="/tmp/wallpaper_history_2.txt"
-touch "$history_file_1"
-touch "$history_file_2"
+touch "$history_file_1" "$history_file_2"
 
 
 while true; do
@@ -18,6 +15,10 @@ while true; do
     current_hour=$(date +%H)
 
     if [ "$current_hour" != "$last_hour" ]; then
+
+        monitors=($(hyprctl monitors -j | jq -r 'sort_by(.x) | .[].name'))
+        primary_monitor=${monitors[0]}
+        secondary_monitor=${monitors[1]}
     
         wallpaper_subdir=""
 
@@ -37,6 +38,7 @@ while true; do
         esac
 
         current_wallpaper_dir="$base_wallpaper_dir/$wallpaper_subdir"
+        
         if [ -d "$current_wallpaper_dir" ]; then
             wallpaper_list=$(find "$current_wallpaper_dir" -type f \( -name "*.jpg" -o -name "*.png" \))
 
@@ -73,8 +75,8 @@ while true; do
             awww img "$wallpaper_1" --outputs "$primary_monitor" $transition_args 
             awww img "$wallpaper_2" --outputs "$secondary_monitor" $transition_args
 
-            matugen image -t scheme-tonal-spot -c ~/.config/matugen/secondary.toml "$wallpaper_2" 
-            matugen image -t scheme-tonal-spot "$wallpaper_1" 
+            matugen image  -c ~/.config/matugen/secondary.toml "$wallpaper_2" --prefer lightness
+            matugen image  "$wallpaper_1" --prefer lightness
 
         else
             echo "Error: Directory $current_wallpaper_dir not found."
