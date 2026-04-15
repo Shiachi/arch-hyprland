@@ -29,7 +29,7 @@ while true; do
             12|13|14|15|16|17)
                 wallpaper_subdir="Day"
                 ;;
-            18|19|20)
+            18)
                 wallpaper_subdir="Sunset"
                 ;;
             *)
@@ -73,10 +73,12 @@ while true; do
             echo $wallpaper_2
             
             awww img "$wallpaper_1" --outputs "$primary_monitor" $transition_args 
+            echo $primary_monitor
             awww img "$wallpaper_2" --outputs "$secondary_monitor" $transition_args
+            echo $secondary_monitor
 
-            matugen image  -c ~/.config/matugen/secondary.toml "$wallpaper_2" --prefer lightness
-            matugen image  "$wallpaper_1" --prefer lightness
+            matugen image -c ~/.config/matugen/secondary.toml "$wallpaper_2" --source-color-index 0
+            matugen image "$wallpaper_1" --source-color-index 0
 
         else
             echo "Error: Directory $current_wallpaper_dir not found."
