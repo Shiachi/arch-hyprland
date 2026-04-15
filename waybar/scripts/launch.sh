@@ -10,13 +10,11 @@ export PRIMARY_MONITOR=${monitors[0]}
 export SECONDARY_MONITOR=${monitors[1]}
 
 envsubst < "$HOME/.config/waybar/settings/config_primary.template" > "/tmp/waybar_primary.jsonc"
-
 waybar -c "/tmp/waybar_primary.jsonc" \
-       -s "$HOME/.config/waybar/themes/style_primary.css" > /dev/null 2>&1 &
+       -s "$HOME/.config/waybar/themes/style_primary.css" > /dev/null 2>&1 & 
 
-if [[ "$SECONDARY_MONITOR" != "None" ]]; then
+if [[ -n "$SECONDARY_MONITOR" && "$SECONDARY_MONITOR" != "null" ]]; then
     envsubst < "$HOME/.config/waybar/settings/config_secondary.template" > "/tmp/waybar_secondary.jsonc"
-
     waybar -c "/tmp/waybar_secondary.jsonc" \
            -s "$HOME/.config/waybar/themes/style_secondary.css" > /dev/null 2>&1 &
 fi
