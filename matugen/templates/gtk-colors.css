@@ -4,7 +4,7 @@
 */
 * {
     font-weight: 500;
-    font-family: NotoSansMono-Regular, sans-serif
+    font-family: "SF Pro Display", "Symbols Nerd Font";
 }
 
 @define-color accent_color {{colors.primary_fixed_dim.default.hex}};

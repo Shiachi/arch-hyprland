@@ -14,7 +14,7 @@
     /* Border and Layout */
     border-color: @outline;
     spacing: 0;
-    font: "NotoSansMono-Regular 11";
+    font: "JetBrainsMono Nerd Font Propo 11";
 }
 window {
     background-color: @background;
