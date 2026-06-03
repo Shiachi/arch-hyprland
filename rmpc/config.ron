@@ -51,7 +51,6 @@
             "f":       SeekForward,
             "z":       ToggleRepeat,
             "x":       ToggleRandom,
-            "c":       ToggleConsume,
             "v":       ToggleSingle,
             "b":       SeekBack,
             "~":       ShowHelp,
