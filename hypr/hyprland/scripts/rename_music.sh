@@ -3,22 +3,37 @@
 shopt -s nullglob
 
 echo --- Reading files ---
-unclean_cue=$(ls *.cue | grep -v '^clean' | head -n 1) 
-unsplit_flac=$(ls *.flac | grep -v '^[0-9]' | head -n 1) 
+loop_split=0
 
-echo --- $unclean_cue --- $unsplit_flac ---
+for cue_file in *.cue; do
+    ((loop_split++))
+    echo $loop_split
 
-echo --- Cleaning cue ---
-grep -E "^\s*(FILE|TRACK|INDEX|TITLE|PERFORMER)" "$unclean_cue" | sed -E 's/:7[5-9]/:74/g' > clean_cue.cue
+    unclean_cue=$(ls *.cue | grep -v '^clean' | head -n 1) 
+    unsplit_flac=$(ls *.flac | grep -v '^[0-9]' | head -n 1) 
 
-echo "--- Split tracks ---"
-shnsplit -f clean_cue.cue -o flac -t "%n" "$unsplit_flac"
+    echo --- $unclean_cue --- $unsplit_flac ---
 
-echo "--- Add tag from clean cue to split tracks ---"
-cuetag.sh clean_cue.cue [0-9]*.flac  
+    if [[ -n "$unsplit_flac" && ! "$unsplit_flac" =~ ^[0-9] ]]; then
+        echo "$cue_file + $unsplit_flac"
+        echo --- Cleaning cue ---
+        grep -E "^\s*(FILE|TRACK|INDEX|TITLE|PERFORMER)" "$unclean_cue.cue" | sed -E 's/:7[5-9]/:74/g' > clean_cue.cue
 
-echo ---delete clean cue file ---
-rm clean_cue.cue
+        echo "--- Split tracks ---"
+        if shnsplit -f clean_cue.cue -o flac -t "${loop_split}-%n" "$unsplit_flac"; then
+            echo "--- Add tag from clean cue to split tracks ---"
+            cuetag.sh clean_cue.cue "${loop_split}"-[0-9]*.flac           
+        else
+            echo "ERROR: shnsplit dont works with $unsplit_flac"
+        fi
+
+        echo ---delete clean cue file ---
+        rm clean_cue.cue
+        
+    else
+        echo "Error: $cue_file dint has a pair"
+    fi
+done
 
 echo --- open picard for edit tags ---
 picard [0-9]*.flac -e CLUSTER -e LOOKUP all
