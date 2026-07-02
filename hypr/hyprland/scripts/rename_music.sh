@@ -19,3 +19,9 @@ cuetag.sh clean_cue.cue [0-9]*.flac
 
 echo ---delete clean cue file ---
 rm clean_cue.cue
+
+echo --- open picard for edit tags ---
+picard [0-9]*.flac -e CLUSTER -e LOOKUP all
+echo --- close picard ---
+
+echo --- finish ----
