@@ -9,10 +9,15 @@ for cue_file in *.cue; do
     ((loop_split++))
     echo $loop_split
 
-    unclean_cue=$(ls *.cue | grep -v '^clean' | head -n 1) 
-    unsplit_flac=$(ls *.flac | grep -v '^[0-9]' | head -n 1) 
+    unclean_cue="${cue_file%.*}"
+    unsplit_flac=""
 
-    echo --- $unclean_cue --- $unsplit_flac ---
+    for file in "$unclean_cue".*; do
+        if [[ -f "$file" && "$file" != "$cue_file" && "$file" =~ \.(flac|wav)$ ]]; then
+            unsplit_flac="$file"
+            break
+        fi
+    done
 
     if [[ -n "$unsplit_flac" && ! "$unsplit_flac" =~ ^[0-9] ]]; then
         echo "$cue_file + $unsplit_flac"
