@@ -49,6 +49,7 @@ for file in [0-9]*.flac; do
   track_number=$(metaflac --show-tag=TRACKNUMBER "$file" | cut -d= -f2)
   title=$(metaflac --show-tag=TITLE "$file" | cut -d= -f2)
   disc=$(metaflac --show-tag=DISCNUMBER "$file" | cut -d= -f2)
+  album_name=$(metaflac --show-tag=ALBUM "$file" | cut -d= -f2-)
 
   if [ -z "$disc" ]; then disc="1"; fi
 
@@ -63,5 +64,12 @@ for file in [0-9]*.flac; do
     mv -v "$file" "$new_name"
   fi
 done
+echo --- rename current folder to album name ----
+
+safe_folder_name=$(printf "%s" "$album_name" | tr -d '\r\n' | sed -E 's/[\\/:\*\?"<>|]/_/g')
+safe_folder_name=$(printf "%s" "$safe_folder_name" | sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//')
+safe_folder_name=$(printf "%s" "$safe_folder_name" | sed -E 's/\.+$//')
+
+mv "$PWD" "${PWD%/*}/$safe_folder_name"
 
 echo --- finish ----
