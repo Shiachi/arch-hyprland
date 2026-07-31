@@ -1,5 +1,9 @@
 #!/usr/bin/bash
-sleep 5s #Delay startup until all monitors are ready.
+
+if ! pgrep -x "awww-daemon" > /dev/null; then
+    awww-daemon &
+    sleep 1
+fi
 
 base_wallpaper_dir="/mnt/Files/media/Fan Art/Zpixiv/R/wall"
 transition_args="--transition-type outer --transition-step 86 --transition-fps 75"
