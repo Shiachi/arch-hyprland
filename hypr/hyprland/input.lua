@@ -1,7 +1,7 @@
 -- my programs
 
 local terminal    = "kitty"
-local fileManager = "dolphin"
+local fileManager = "nemo"
 local menu        = "rofi -show drun"
 local kitty_script = "~/.config/hypr/hyprland/scripts/kitty.sh"
 
