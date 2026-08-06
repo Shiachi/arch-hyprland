@@ -53,6 +53,7 @@ hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("grimblast copysave active output.png
 hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("grimblast copy area output.png"))
 
 -- Media key
+hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("playerctl next"))
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("playerctl previous"))
 
