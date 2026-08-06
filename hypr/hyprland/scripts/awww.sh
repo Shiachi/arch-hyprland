@@ -1,10 +1,5 @@
 #!/usr/bin/bash
 
-if ! pgrep -x "awww-daemon" > /dev/null; then
-    awww-daemon &
-    sleep 1
-fi
-
 base_wallpaper_dir="/mnt/Files/media/Fan Art/Zpixiv/R/wall"
 transition_args="--transition-type outer --transition-step 86 --transition-fps 75"
 last_hour=""
@@ -13,6 +8,7 @@ history_file_1="/tmp/wallpaper_history_1.txt"
 history_file_2="/tmp/wallpaper_history_2.txt"
 touch "$history_file_1" "$history_file_2"
 
+sleep 2
 
 while true; do
 
