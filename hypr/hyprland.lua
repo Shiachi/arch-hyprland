@@ -12,3 +12,6 @@ require("hyprland/environment")
 
 -- theme
 require("hyprland/theme")
+
+-- autostart
+require("hyprland/autostart")

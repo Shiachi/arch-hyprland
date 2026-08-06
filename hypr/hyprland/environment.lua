@@ -17,3 +17,11 @@ hl.env("XDG_MENU_PREFIX", "plasma-")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("WLR_NO_HARDWARE_CURSORS", "1")
+
+-- window rules
+hl.window_rule({
+  match = { 
+    class = "^(org.qbittorrent.qBittorrent)$" 
+  },
+  workspace = "special:magic silent"
+})
