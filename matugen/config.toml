@@ -5,8 +5,8 @@ arguments = ["img", "--transition-type", "any", "--transition-fps", "60"]
 set = false
 
 [templates.hyprland] #onlyGen
-input_path = '~/.config/matugen/templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/hyprland/colors.conf'
+input_path = '~/.config/matugen/templates/hyprland-colors.lua'
+output_path = '~/.config/hypr/hyprland/colors.lua'
 
 [templates.waybar] #onlyGen 
 input_path = '~/.config/matugen/templates/color.css'
@@ -34,7 +34,7 @@ output_path = '~/.config/rofi/colors.rasi'
 [templates.cava] 
 input_path = '~/.config/matugen/templates/cava-colors.ini'
 output_path = '~/.config/cava/themes/your-theme'
-post_hook = "pkill -USR1 cava"
+post_hook = "sh -c 'pkill -USR1 cava || true'"
 
 [templates.vscodium]
 input_path = '~/.config/matugen/templates/vscode.json'

@@ -1,13 +1,18 @@
+local c = require("hyprland/colors")
+
 hl.config({
     general = {
         gaps_in = 5,
         gaps_out = 15,
 
-        border_size = 1,
+        border_size = 3,
 
         col = {
-            active_border = { colors = {"rgba(e5b9c6ff)", "rgba(c293a3ff)"}, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border = { 
+                colors = { c.primary, c.secondary, c.tertiary, c.source_color, c.primary }, 
+                angle = 45 
+            },
+            inactive_border = c.outline_variant,
         },
 
         resize_on_border = false,
@@ -26,7 +31,7 @@ hl.config({
             enabled = true,
             range = 4,
             render_power = 3,
-            color = "rgba(1a1a1aee)", 
+            color = c.shadow, 
         },
 
         blur = {
@@ -41,12 +46,14 @@ hl.config({
         enabled = true, 
     },
 })
-
+hl.curve("testLoop", { type = "bezier", points = { {1, 1}, {1, 1} } })
 hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1} } })
 hl.curve("easeInOutCubic", { type = "bezier", points = { {0.65, 0.05}, {0.36, 1} } })
 hl.curve("linear",         { type = "bezier", points = { {0, 0},       {1, 1}    } })
 hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1} } })
 hl.curve("quick",          { type = "bezier", points = { {0.15, 0},    {0.1, 1}  } })
+
+hl.animation({ leaf = "borderangle", enabled = true, speed = 100, bezier = "testLoop", style = "loop" })
 
 hl.animation({ leaf = "global",        enabled = true, speed = 10,   bezier = "default" })
 hl.animation({ leaf = "border",        enabled = true, speed = 5.39, bezier = "easeOutQuint" })
