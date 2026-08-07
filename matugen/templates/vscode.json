@@ -1,18 +1,13 @@
 {
   "material-code.colors": {
     "primary": "{{colors.primary.default.hex}}",
-
     "foreground": "{{colors.on_surface.default.hex}}",
     "mutedForeground": "{{colors.on_surface_variant.default.hex}}",
-    
     "background": "{{colors.surface_container_lowest.default.hex}}",
-    
     "card": "{{colors.surface_container.default.hex}}",
     "popover": "{{colors.surface_container_high.default.hex}}",
     "hover": "{{colors.surface_container_highest.default.hex}}",
-    
     "border": "{{colors.outline.default.hex}}",
-    
     "primaryForeground": "{{colors.on_primary.default.hex}}",
     "secondary": "{{colors.secondary_container.default.hex}}",
     "secondaryForeground": "{{colors.on_secondary_container.default.hex}}",
@@ -20,18 +15,14 @@
     "errorForeground": "{{colors.on_error.default.hex}}",
     "success": "{{colors.inverse_primary.default.hex}}",
     "warning": "{{colors.tertiary.default.hex}}",
-
     "syntax.comment": "{{colors.on_surface_variant.default.hex}}", 
     "syntax.string": "{{colors.tertiary.default.hex}}",
     "syntax.keyword": "{{colors.primary.default.hex}}",
     "syntax.variable": "{{colors.on_surface.default.hex}}",
     "syntax.attribute": "{{colors.secondary.default.hex}}",
-    
     "syntax.property": "{{colors.on_surface.default.hex}}",
     "syntax.function": "{{colors.secondary.default.hex}}",
-    
     "syntax.constant": "{{colors.tertiary.default.hex}}",
-    
     "syntax.bracket1": "{{colors.outline.default.hex}}",
     "syntax.bracket2": "{{colors.primary.default.hex}}",
     "syntax.bracket3": "{{colors.secondary.default.hex}}",
@@ -50,20 +41,25 @@
   "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "'JetBrainsMonoNL Nerd Font Mono', monospace",
   "editor.fontLigatures": true,
-
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
   "editor.guides.indentation": true,
-
   "editor.guides.highlightActiveBracketPair": true,
   "editor.guides.bracketPairsHorizontal": "active",
-
   "[shellscript]": {
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.guides.indentation": true
   },
-
   "editor.semanticHighlighting.enabled": true,
   "window.dialogStyle": "custom",
+  
+  "editor.formatOnSave": true,
+  "editor.smoothScrolling": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.minimap.enabled": false,
+  "window.menuBarVisibility": "toggle",
+  "workbench.startupEditor": "none",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false
 }
